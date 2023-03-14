@@ -34,5 +34,10 @@ namespace BookStore.DL.Repositories.InMemoryRepositories
                 bookForUpdate.Title = book.Title;
             }
         }
+
+        public IEnumerable<Book> GetAllByAuthorId(int authorId)
+        {
+            return InMemoryDb.InMemoryDb.Books.Where(book => book.AuthorId == authorId);
+        }
     }
 }
