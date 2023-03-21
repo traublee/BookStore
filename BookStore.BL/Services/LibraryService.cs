@@ -23,7 +23,7 @@ namespace BookStore.BL.Services
             {
                 books = _bookRepository.GetAllByAuthorId(authorId);
             }
-           
+        
             return new GetAllBooksByAuthorResponse()
             {
                 Author = author,
