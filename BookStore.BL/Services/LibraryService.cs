@@ -26,7 +26,7 @@ namespace BookStore.BL.Services
         
             return new GetAllBooksByAuthorResponse()
             {
-                Author = author,
+                Author = author.Result,
                 Books = books
             };
         }
