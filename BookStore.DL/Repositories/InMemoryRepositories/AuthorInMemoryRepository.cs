@@ -3,7 +3,7 @@ using BookStore.Models.Base;
 
 namespace BookStore.DL.Repositories.InMemoryRepositories
 {
-    public class AuthorInMemoryRepository : IAuthorRepository
+    public class AuthorInMemoryRepository
     {
         public IEnumerable<Author> GetAll()
         {

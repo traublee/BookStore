@@ -2,7 +2,9 @@
 {
     public class Person
     {
-        public int Id { get; set; }
+        [BsonId]
+        [BsonElement("_id")]
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
     }
