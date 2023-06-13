@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BookStore.BL.Interfaces;
 using BookStore.DL.Interfaces;
-using BookStore.Models.Base;
+using BookStore.Models.Models;
 using BookStore.Models.Requests;
 using System.Net.Http.Headers;
 

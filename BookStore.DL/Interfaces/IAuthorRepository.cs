@@ -1,4 +1,4 @@
-﻿using BookStore.Models.Base;
+﻿using BookStore.Models.Models;
 
 namespace BookStore.DL.Interfaces
 {
@@ -6,11 +6,11 @@ namespace BookStore.DL.Interfaces
     {
         Task<IEnumerable<Author>> GetAll();
 
-        Task<Author> GetById(int id);
+        Task<Author> GetById(Guid id);
 
         Task Add(Author author);
 
-        Task Delete(int id);
+        Task Delete(Guid id);
 
         Task Update(Author author);
     }

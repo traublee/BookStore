@@ -1,4 +1,6 @@
-﻿namespace BookStore.Models.Base
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace BookStore.Models.Base
 {
     public class Person
     {

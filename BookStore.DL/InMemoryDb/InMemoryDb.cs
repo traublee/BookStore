@@ -1,4 +1,4 @@
-﻿using BookStore.Models.Base;
+﻿/*using BookStore.Models.Models;
 using System.Data;
 
 namespace BookStore.DL.InMemoryDb
@@ -9,12 +9,12 @@ namespace BookStore.DL.InMemoryDb
         {
             new Author()
             {
-                Id = 1,
+                Id = Guid.NewGuid(),
                 Name = "Peter"
             },
             new Author()
             {
-                Id = 2,
+                Id = Guid.NewGuid(),
                 Name = "Steven"
             }
         };
@@ -35,3 +35,4 @@ namespace BookStore.DL.InMemoryDb
         };
     }
 }
+*/

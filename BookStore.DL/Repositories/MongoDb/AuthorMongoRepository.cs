@@ -1,6 +1,6 @@
 ﻿using BookStore.DL.Interfaces;
-using BookStore.Models.Base;
 using BookStore.Models.Configurations;
+using BookStore.Models.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -14,14 +14,14 @@ namespace BookStore.DL.Repositories.MongoDb
             var client = new MongoClient(mongoConfig.CurrentValue.ConnectionString);
             var database = client.GetDatabase(mongoConfig.CurrentValue.DatabaseName);
 
-            _authors = database.GetCollection<Author>(nameof(Author));
+            _authors = database.GetCollection<Author>($"{nameof(Author)}-EI");
         }
 
         public async Task<IEnumerable<Author>> GetAll()
         {
             return await _authors.Find(author => true).ToListAsync();
         }
-        public async Task<Author> GetById(int id)
+        public async Task<Author> GetById(Guid id)
         {
             return await _authors.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
@@ -29,7 +29,7 @@ namespace BookStore.DL.Repositories.MongoDb
         {
             await _authors.InsertOneAsync(author);
         }
-        public Task Delete(int id)
+        public Task Delete(Guid id)
         {
             return _authors.DeleteOneAsync(x => x.Id == id);
         }
