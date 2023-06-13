@@ -1,5 +1,5 @@
 using BookStore.BL.Interfaces;
-using BookStore.Models.Base;
+using BookStore.Models.Models;
 using BookStore.Models.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +26,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("GetByID")]
-        public async Task<Author> GetById(int id)
+        public async Task<Author> GetById(Guid id)
         {
             return await _authorService.GetById(id);
         }
@@ -44,7 +44,7 @@ namespace BookStore.Controllers
         }
 
         [HttpDelete("Delete")]
-        public async Task Delete(int id)
+        public async Task Delete(Guid id)
         {
             await _authorService.Delete(id);
         }

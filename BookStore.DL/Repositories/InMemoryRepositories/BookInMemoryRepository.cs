@@ -1,8 +1,8 @@
-﻿using BookStore.DL.Interfaces;
-using BookStore.Models.Base;
+﻿/*using BookStore.DL.Interfaces;
+using BookStore.Models.Models;
 
 namespace BookStore.DL.Repositories.InMemoryRepositories
-{ 
+{
     public class BookInMemoryRepository
     {
         public IEnumerable<Book> GetAll()
@@ -35,9 +35,10 @@ namespace BookStore.DL.Repositories.InMemoryRepositories
             }
         }
 
-        public IEnumerable<Book> GetAllByAuthorId(int authorId)
+        public IEnumerable<Book> GetAllByAuthorId(Guid authorId)
         {
-            return InMemoryDb.InMemoryDb.Books.Where(book => book.AuthorId == authorId);
+            return Enumerable.Empty<Book>();
         }
     }
 }
+*/

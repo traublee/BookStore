@@ -1,5 +1,5 @@
 ﻿using BookStore.BL.Interfaces;
-using BookStore.Models.Base;
+using BookStore.Models.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,34 +16,52 @@ namespace BookStore.Controllers
             _bookService = bookService;
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Book>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("GetAllBooks")]
-        public async Task<IEnumerable<Book>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return await _bookService.GetAll();
+            var result = await _bookService.GetAll();
+            if (result != null && result.Any()) return Ok(result);
+            return NotFound();
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Book))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("GetByID")]
-        public async Task<Book> GetById(int id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            return await _bookService.GetById(id);
+            if (id == null) return BadRequest(id);
+            var result = await _bookService.GetById(id);
+
+            if (result != null) return Ok(result);
+            return NotFound();
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Book))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost("Add")]
         public async Task Add([FromBody] Book book)
         {
             await _bookService.Add(book);
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Book))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost("Update")]
         public async Task Update([FromBody] Book book)
         {
             await _bookService.Update(book);
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Book))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpDelete("Delete")]
-        public async Task Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             await _bookService.Delete(id);
+            return Ok();
         }
     }
 }

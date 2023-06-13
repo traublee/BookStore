@@ -1,4 +1,4 @@
-﻿using BookStore.Models.Base;
+﻿using BookStore.Models.Models;
 using BookStore.Models.Requests;
 
 namespace BookStore.BL.Interfaces

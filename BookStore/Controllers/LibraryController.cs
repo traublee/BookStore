@@ -9,15 +9,15 @@ namespace BookStore.Controllers
     public class LibraryController : ControllerBase
     {
         private readonly ILibraryService _libraryService;
-        public LibraryController(ILibraryService libraryService)
+        public LibraryController (ILibraryService libraryService)
         {
             _libraryService = libraryService;
         }
 
         [HttpGet("GetAllBooksByAuthor")]
-        public GetAllBooksByAuthorResponse GetAllBooksByAuthor(int authorId)
+        public async Task <GetAllBooksByAuthorResponse> GetAllBooksByAuthor(Guid authorId)
         {
-            return _libraryService.GetAllBooksByAuthorId(authorId);
+            return await _libraryService.GetAllBooksByAuthorId(authorId);
         }
     }
 }

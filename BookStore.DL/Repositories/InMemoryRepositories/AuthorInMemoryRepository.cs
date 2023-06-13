@@ -1,5 +1,5 @@
-﻿using BookStore.DL.Interfaces;
-using BookStore.Models.Base;
+﻿/*using BookStore.DL.Interfaces;
+using BookStore.Models.Models;
 
 namespace BookStore.DL.Repositories.InMemoryRepositories
 {
@@ -9,7 +9,7 @@ namespace BookStore.DL.Repositories.InMemoryRepositories
         {
             return InMemoryDb.InMemoryDb.Authors;
         }
-        public Author GetById(int id)
+        public Author GetById(Guid id)
         {
             return InMemoryDb.InMemoryDb.Authors.SingleOrDefault(x => x.Id == id);
         }
@@ -17,9 +17,9 @@ namespace BookStore.DL.Repositories.InMemoryRepositories
         {
             InMemoryDb.InMemoryDb.Authors.Add(author);
         }
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            var author = InMemoryDb.InMemoryDb.Authors.FirstOrDefault(x => x.Id==id);
+            var author = InMemoryDb.InMemoryDb.Authors.FirstOrDefault(x => x.Id == id);
             if (author != null)
             {
                 InMemoryDb.InMemoryDb.Authors.Remove(author);
@@ -36,3 +36,4 @@ namespace BookStore.DL.Repositories.InMemoryRepositories
         }
     }
 }
+*/
